@@ -1,0 +1,31 @@
+@import (reference) '../../style.less';
+
+.dashboard {
+	&:extend(.fill);
+
+	.content-wrapper {
+		margin: auto;
+		width: 600px;
+		text-align: center;
+	}
+
+	.entry {
+		text-align: left;
+	}
+
+	.entry:nth-last-child(2) {
+		margin-bottom: 0;
+	}
+
+	.panel-heading {
+		height: 43px;
+
+		h3 {
+			line-height: 22px;
+		}
+
+		.label {
+			margin: 4px;
+		}
+	}
+}

@@ -1,0 +1,21 @@
+{
+  "name": "jsdoc-i18n",
+  "description": "A internationlization workflow developed around JSDoc",
+  "version": "0.1.0",
+  "homepage": "https://github.com/AlmirKadric-Published/jsdoc-i18n",
+  "license": "MIT",
+  "author": {
+    "name": "Almir Kadric",
+    "email": "github@almirkadric.com",
+    "url": "https://github.com/AlmirKadric"
+  },
+  "bin": {
+    "jsdoc-i18n-import": "./bin/jsdoc-i18n-import.js",
+    "jsdoc-i18n-server": "./bin/jsdoc-i18n-server.js",
+    "jsdoc-i18n-render": "./bin/jsdoc-i18n-render.js"
+  },
+  "dependencies": {
+    "jsdoc": "3.4.3",
+    "node-router": "0.1.5"
+  }
+}

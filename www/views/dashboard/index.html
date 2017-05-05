@@ -1,0 +1,45 @@
+<div class="dashboard">
+	<div class="center">
+		<div class="content-wrapper">
+			<ul uib-pagination class="pagination-sm"
+				boundary-links="true"
+				boundary-link-numbers="true"
+				force-ellipses="true"
+
+				total-items="dataCount"
+				items-per-page="pageSize"
+				ng-model="pageCurrent"
+
+				first-text="&laquo;" last-text="&raquo;"
+				previous-text="&lsaquo;" next-text="&rsaquo;"
+			></ul>
+
+			<div class="entry panel panel-default"
+				 ng-repeat="entry in data | filter:q | startFrom:(pageCurrent-1)*pageSize | limitTo:pageSize"
+				 ng-if="entry.contentChanged"
+			>
+				<div class="panel-heading">
+					<h3 class="panel-title pull-left">{{ entry.longname }}</h3>
+					<a class="btn btn-primary btn-xs pull-right" href="#!/edit?{{ editParams(entry.longname) }}">Edit</a>
+					<div ng-show="!entry.content" class="label label-success pull-right">New</div>
+				</div>
+				<div class="panel-body">
+					<pre class="diff" ng-bind-html="diff(entry.contentWas, entry.contentBecame)"></pre>
+				</div>
+			</div>
+
+			<ul uib-pagination class="pagination-sm"
+				boundary-links="true"
+				boundary-link-numbers="true"
+				force-ellipses="true"
+
+				total-items="dataCount"
+				items-per-page="pageSize"
+				ng-model="pageCurrent"
+
+				first-text="&laquo;" last-text="&raquo;"
+				previous-text="&lsaquo;" next-text="&rsaquo;"
+			></ul>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,35 @@
+@import (reference) '../../style.less';
+
+.edit {
+	&:extend(.fill);
+
+	.content-wrapper {
+		margin: auto;
+		width: 600px;
+
+		.panel-heading {
+			font-weight: bold;
+			height: 43px;
+
+			.label {
+				margin: 4px;
+			}
+		}
+	}
+
+	.contentDefault {
+		margin-bottom: 10px;
+	}
+
+	.contentLang {
+		padding: 5px 10px;
+		margin: 0 0 10px 0;
+		min-height: 200px;
+	}
+
+	.actions {
+		.btn {
+			margin-left: 10px;
+		}
+	}
+}

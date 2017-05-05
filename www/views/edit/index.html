@@ -1,0 +1,28 @@
+<div class="edit">
+	<div class="center">
+		<div class="content-wrapper panel panel-default">
+			<div class="panel-heading">
+				<div class="pull-left">{{ longname }}</div>
+				<div ng-show="isNew" class="label label-success pull-right">New</div>
+			</div>
+			<div class="panel-body">
+				<uib-tabset class="contentDefault" active="active">
+					<uib-tab index="0" heading="Diff">
+						<pre class="diff" ng-bind-html="diff(contentWas, contentBecame)"></pre>
+					</uib-tab>
+					<uib-tab index="2" heading="Current Only">
+						<pre>{{ contentBecame }}</pre>
+					</uib-tab>
+				</uib-tabset>
+
+				<h4>Translation</h4>
+				<pre class="contentLang" contenteditable ng-model="content"></pre>
+
+				<div class="actions">
+					<button ng-click="save()" class="btn btn-primary pull-right">Save</button>
+					<button ng-click="reset()" class="btn btn-primary pull-right">Reset</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

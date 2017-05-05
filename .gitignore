@@ -1,0 +1,8 @@
+# IDEs
+/.idea
+
+# Node
+/node_modules
+
+# OS Cache Files
+.DS_Store
