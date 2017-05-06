@@ -1,18 +1,26 @@
 <div class="dashboard">
 	<div class="center">
 		<div class="content-wrapper">
-			<ul uib-pagination class="pagination-sm"
-				boundary-links="true"
-				boundary-link-numbers="true"
-				force-ellipses="true"
+			<div class="form-inline options">
+				<!-- Pagination -->
+				<ul uib-pagination class="pagination"
+					boundary-links="true"
+					boundary-link-numbers="true"
+					force-ellipses="true"
 
-				total-items="dataCount"
-				items-per-page="pageSize"
-				ng-model="pageCurrent"
+					total-items="dataCount"
+					items-per-page="pageSize"
+					ng-model="pageCurrent"
 
-				first-text="&laquo;" last-text="&raquo;"
-				previous-text="&lsaquo;" next-text="&rsaquo;"
-			></ul>
+					first-text="&laquo;" last-text="&raquo;"
+					previous-text="&lsaquo;" next-text="&rsaquo;"
+				></ul>
+
+				<!-- Language Drop Down -->
+				<select class="form-control languages" ng-model="lang">
+					<option ng-repeat="language in languages">{{ language }}</option>
+				</select>
+			</div>
 
 			<div class="entry panel panel-default"
 				 ng-repeat="entry in data | filter:q | startFrom:(pageCurrent-1)*pageSize | limitTo:pageSize"
@@ -28,18 +36,26 @@
 				</div>
 			</div>
 
-			<ul uib-pagination class="pagination-sm"
-				boundary-links="true"
-				boundary-link-numbers="true"
-				force-ellipses="true"
+			<div class="form-inline options">
+				<!-- Pagination -->
+				<ul uib-pagination class="pagination"
+					boundary-links="true"
+					boundary-link-numbers="true"
+					force-ellipses="true"
 
-				total-items="dataCount"
-				items-per-page="pageSize"
-				ng-model="pageCurrent"
+					total-items="dataCount"
+					items-per-page="pageSize"
+					ng-model="pageCurrent"
 
-				first-text="&laquo;" last-text="&raquo;"
-				previous-text="&lsaquo;" next-text="&rsaquo;"
-			></ul>
+					first-text="&laquo;" last-text="&raquo;"
+					previous-text="&lsaquo;" next-text="&rsaquo;"
+				></ul>
+
+				<!-- Language Drop Down -->
+				<select class="form-control languages" ng-model="lang">
+					<option ng-repeat="language in languages">{{ language }}</option>
+				</select>
+			</div>
 		</div>
 	</div>
 </div>

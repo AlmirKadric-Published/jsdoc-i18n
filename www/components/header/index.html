@@ -21,7 +21,7 @@
 					ng-repeat="(url, route) in routes"
 					ng-if="route.headerLabel"
 				>
-					<a href="#!{{ url }}">{{ route.headerLabel }}</a>
+					<a href="#!{{ urlWithParams(url, lang) }}">{{ route.headerLabel }}</a>
 				</li>
 			</ul>
 		</div>

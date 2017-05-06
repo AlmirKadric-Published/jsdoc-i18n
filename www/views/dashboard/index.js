@@ -3,9 +3,14 @@ define(function (require, exports, module) {
 
 	require('style!./style.less');
 
-	module.exports = function ($scope, $location, $sce, $q, $http) {
+	module.exports = function ($scope, $location, $routeParams, $sce, $q, $http) {
 		$scope.type = $location.path().substring(1);
-		$scope.lang = 'ja';
+
+		$scope.languages = [];
+		$scope.lang = $routeParams.lang;
+		$scope.$watch('lang', function () {
+			$location.search('lang', $scope.lang);
+		});
 
 		$scope.data = [];
 		$scope.dataCount = 0;
@@ -44,24 +49,44 @@ define(function (require, exports, module) {
 			].join('&');
 		};
 
+		$scope.loadLanguages = function () {
+			var deferred = $q.defer();
+
+			$http({
+				method: 'GET',
+				url: '/language/list'
+			}).then(function (response) {
+				$scope.languages = response.data;
+				if (!$scope.lang) {
+					$scope.lang = $scope.languages[0];
+				}
+
+				deferred.resolve();
+			}, function (response) {
+				console.error('Error when loading language data:', response);
+			});
+
+			return deferred.promise;
+		};
+
 		/**
 		 *
 		 */
-		$scope.load = function () {
+		$scope.loadItems = function () {
 			$http({
 				method: 'GET',
-				url: '/list',
+				url: '/item/list',
 				params: { type: $scope.type, lang: $scope.lang }
 			}).then(function (response) {
 				$scope.data = response.data;
 				$scope.dataCount = response.data.length;
 				$scope.pageCurrent = 1;
 			}, function (response) {
-				console.error('Error when loading data:', response);
+				console.error('Error when loading items data:', response);
 			});
 		};
 
 		// Do initial when page is displayed
-		$scope.load();
+		$scope.loadLanguages().then($scope.loadItems);
 	};
 });

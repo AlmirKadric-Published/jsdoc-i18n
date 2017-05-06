@@ -39,7 +39,7 @@ define(function (require, exports, module) {
 		$scope.save = function () {
 			$http({
 				method: 'POST',
-				url: '/set',
+				url: '/item/set',
 				params: { type: $scope.type, lang: $scope.lang, longname: $scope.longname },
 				data: { content: $scope.content }
 			}).then(function (response) {
@@ -62,7 +62,7 @@ define(function (require, exports, module) {
 		$scope.load = function () {
 			$http({
 				method: 'GET',
-				url: '/get',
+				url: '/item/get',
 				params: { type: $scope.type, lang: $scope.lang, longname: $scope.longname }
 			}).then(function (response) {
 				var doclet = response.data;
