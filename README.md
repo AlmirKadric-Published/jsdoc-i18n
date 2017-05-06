@@ -30,6 +30,7 @@ Configuration
 On top of the existing `jsdoc` configuration options, the following options are accepted under the
 `i18n` rootpath:
  - `defaultLang`: The default language existing documentation is written in (**Default**: `en`)
+ - `possibleLang`: List of languages we can translate to (**Default**: `['zh', 'es', 'ja']`)
  - `dbPlugin`: The `jsdoc-i18n` database plugin to be used when saving or retrieving `jsdoc` data.
     This can be either a filename or a string reference to one of the `jsdoc-i18n` internal database
     plugins (**Default**: `file`)
@@ -53,7 +54,7 @@ To import `jsdoc` data to `jsdoc-i18n` database:
 jsdoc-i18n-import -c path/to/your/conf.json path/to/files/to/be/parsed
 ```
 
-To start `jsdoc-i18n` translation Web Application Tool:  
+To start `jsdoc-i18n` translation web application tool:  
 ([http://localhost:8080](http://localhost:8080))
 ```
 jsdoc-i18n-server -c path/to/your/conf.json
