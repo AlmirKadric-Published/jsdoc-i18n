@@ -67,6 +67,51 @@ jsdoc-i18n-render -c path/to/your/conf.json -l <language>
 ```
 
 
+Caveats
+-------
+ - Due to an issues in `jsdoc` ES6 class definitions cannot be inlined with export statements.  
+   For example you cannot define an ES6 class like such:
+   ```
+     export default class SomeClass {
+     }
+   ```
+   Instead you will have to break the definition over 2 lines:
+   ```
+     class SomeClass {
+     }
+
+     export default SomeClass;
+   ```
+
+ - Due to the way `jdodc-i18n` works, you cannot document a class and it's constructor separately.  
+   For example you cannot document an ES6 class like such:
+   ```
+     /**
+      * @extends EventEmitter
+      */
+     class SomeClass extends EventEmitter {
+       /**
+        * @param {*} a - what a is for
+        * @param {*} b - what b is for
+        */
+   	   constructor(a, b) {
+       }
+     }
+   ```
+   Instead you should put the constructor documentation inside the class documentation:
+   ```
+     /**
+      * @extends EventEmitter
+      * @param {*} a - what a is for
+      * @param {*} b - what b is for
+      */
+     class SomeClass extends EventEmitter {
+   	   constructor(a, b) {
+       }
+     }
+   ```
+
+
 License
 -------
 `jsdoc-i18n` is free software, licensed under the MIT License.  
