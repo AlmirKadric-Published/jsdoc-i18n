@@ -94,7 +94,7 @@ Caveats
         * @param {*} a - what a is for
         * @param {*} b - what b is for
         */
-   	   constructor(a, b) {
+       constructor(a, b) {
        }
      }
    ```
@@ -106,7 +106,7 @@ Caveats
       * @param {*} b - what b is for
       */
      class SomeClass extends EventEmitter {
-   	   constructor(a, b) {
+       constructor(a, b) {
        }
      }
    ```
