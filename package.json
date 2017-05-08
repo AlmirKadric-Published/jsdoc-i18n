@@ -2,7 +2,7 @@
   "name": "jsdoc-i18n",
   "description": "A internationlization workflow developed around JSDoc",
   "keywords": ["jsdoc", "i18n", "l10n", "internationalization", "localization", "internationalization-tool", "localization-tool"],
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/AlmirKadric-Published/jsdoc-i18n",
   "repository": "AlmirKadric-Published/jsdoc-i18n",
   "license": "MIT",
